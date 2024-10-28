@@ -1,7 +1,7 @@
 use std::env;
 use std::process::Command;
 
-//쉘 명령어 실행
+//쉘 명령어 실행 
 pub fn execute(cmd: &str, args: &[String], remove_newline: bool) -> Option<String> {
     match env::consts::OS {
         "windows" => {
