@@ -40,8 +40,8 @@ pub fn setup(prefix: &str, log_path: &str, max_level: Level, file : bool) -> tra
         .with_max_level(max_level)
         .with_timer(timer)
         .with_target(false)     //프로젝트명 출력 여부
-        .with_file(true)        //파일명 출력 여부
-        .with_line_number(true) //라인번호 출력 여부
+        .with_file(false)        //파일명 출력 여부
+        .with_line_number(false) //라인번호 출력 여부
         .finish();        
         tracing::subscriber::set_global_default(subscriber).expect("setting default subscriber failed");
 
