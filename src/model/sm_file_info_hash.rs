@@ -1,6 +1,6 @@
 use std::fs::Metadata;
 use std::path::PathBuf;
-use super::utils::{hash, date};
+use crate::utils::{hash, date};
 
 #[derive(serde::Serialize, Debug, Clone)]
 pub struct SMFileInfoHash {
