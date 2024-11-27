@@ -3,7 +3,7 @@ use tracing::Level;
 use tracing_subscriber::{fmt, layer::SubscriberExt, util::SubscriberInitExt, Layer};
 use tracing_appender::rolling;
 
-pub fn setup(prefix: &str, log_path: &str, max_level: Level, file : bool) {
+pub fn setup(prefix: &str, log_path: &str, max_level: Level, file : bool) -> tracing_appender::non_blocking::WorkerGuard {
 
     let timer = time::format_description::parse(
         "[year]-[month padding:zero]-[day padding:zero] [hour]:[minute]:[second]",
@@ -58,5 +58,7 @@ pub fn setup(prefix: &str, log_path: &str, max_level: Level, file : bool) {
         .with(console_layer)
         .init();        
     }
+
+    return _guard;
 }
 
